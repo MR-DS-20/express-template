@@ -3,12 +3,17 @@ import { env } from "./environment/env";
 const port: number = env().port;
 import { App } from "./application";
 import { middleware } from "./middleware";
+import { routerTemplate } from "./routes/router.template";
 const dbConString = env().db.uri(env().db.user, env().db.pw, env().db.name, env().db.account)
 
 /**
  * Configure App instance
  */
-const app = new App(port, middleware, []);
+const app = new App(
+    port, 
+    middleware, 
+    [routerTemplate] //* Add your express router objects here
+    );
 
 /**
  * Set up database credentials
