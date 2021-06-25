@@ -1,7 +1,7 @@
 import { env } from "./environment/env";
 import { App } from "./application";
 import { middleware } from "./middleware";
-import { routerTemplate } from "./routes/template.router";
+import { routerTemplate } from "./routes/example.router";
 
 const port: number = env().port ?? 8080;
 let dbConString;
