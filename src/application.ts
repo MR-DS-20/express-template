@@ -22,8 +22,6 @@ export class App {
   ) {
     this.app = express();
 
-    this.port = port;
-
     this.middleware(middleware);
 
     this.routes(routes);
