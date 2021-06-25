@@ -7,7 +7,7 @@ export const env:()=> IEnv = () =>{
         let env = require('./dev')
         return env
     }
-    if (process.env.ENVIRONMENT === 'prod'){
+    if (process.env.ENVIRONMENT === 'production'){
        let env = require('./prod')
        return env
     }
