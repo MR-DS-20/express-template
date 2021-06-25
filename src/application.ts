@@ -3,6 +3,9 @@ import { Application } from "express";
 import express = require('express')
 import mongoose = require("mongoose")
 
+/**
+ * Primary Class that constructs all of the parts of the Express server
+ */
 export class App {
     public app: Application;
 
@@ -58,11 +61,17 @@ export class App {
         })
     }
 
-
+    /**
+     * Enable express to serve up static assets
+     */
     private assets() {
         this.app.use(express.static(this.staticPath));
     }
 
+    /**
+     * Creates a connection to a MongoDB instance using mongoose 
+     * @param uri MongoDB connection string
+     */
     public mongoDB(uri: string) {
         const connect = () => {
             mongoose
@@ -81,6 +90,9 @@ export class App {
         mongoose.connection.on("disconnected", connect);
     }
 
+    /**
+     * Start the Express app
+     */
     public listen() {
         this.app.listen(this.port, () => {
             console.log('APP LISTENING ON PORT:', this.port)
