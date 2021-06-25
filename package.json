@@ -4,6 +4,9 @@
   "description": "Template/Boilerplate for Typescript express server app, for API's and backends application",
   "main": "server.js",
   "scripts": {
+    "build": "tsc",
+    "start:dev": "ENVIRONMENT=dev node ./dist.server.js",
+    "start:prod": "ENVIRONMENT=production node ./dist.server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "MXDS",
