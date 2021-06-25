@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 import { env } from "./environment/env";
 const port: number = env().port;
 import { App } from "./application";
