@@ -11,6 +11,7 @@ export class ExampleController extends BaseController {
   }
 
   exampleApiFunction(req: Request, res: Response) {
+    // Add some conditional logic...
     this.create(res,req.body);
 }
 
