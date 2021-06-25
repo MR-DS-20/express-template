@@ -1,4 +1,4 @@
-import { IEnv } from "./iEnv";
+import { IEnv } from "../interfaces/IEnv";
 
 export const ENV:IEnv = {
     stage: process.env.ENVIRONMENT,
@@ -7,10 +7,10 @@ export const ENV:IEnv = {
     apiPath: '',
     staticPath: '',
     db:{
-        name: '',
+        name: 'COLLECTION_NAME',
         user:'',
         pw: '',
-        account: '@mr-ds-20-ckbes',
+        account: '@mongo-account',
         uri: (user: string, pw :string, name :string, account: string) => {
             return `mongodb+srv://${user}:${pw}${account}.gcp.mongodb.net/${name}?retryWrites=true&w=majority`
         }

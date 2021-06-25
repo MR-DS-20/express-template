@@ -1,32 +1,43 @@
 export interface IEnv {
   stage?: string;
   port: number;
-  db: MongoDBCfg;
-  S3Creds?: S3Creds;
-  adminCreds?: AdminCreds;
-  stripe?: StripeCreds;
+  db: IMongoDBCfg;
+  S3Creds?: IS3Creds;
+  adminCreds?: IAdminCreds;
+  stripe?: IStripeCreds;
   domain: string;
   apiPath: string;
   staticPath: string;
+  azureStorage?:IAzureStorage
 }
-interface StripeCreds {
+
+export interface IStripeCreds {
   sk: string;
   webhooks: [{ [hook: string]: string }];
 }
-interface MongoDBCfg {
+
+export interface IMongoDBCfg {
   name: string;
   user: string;
   pw: string;
   account: string;
   uri: (user: string, pw: string, name: string, account: string) => string;
 }
-interface S3Creds {
+
+export interface IS3Creds {
   s3root: string;
   bucket: string;
   key: string;
   secret: string;
 }
-interface AdminCreds {
+
+export interface IAzureStorage {
+STORAGE_ACCOUNT_NAME: string ;
+STORAGE_ACCOUNT_ACCESS_KEY: string;
+
+}
+
+export interface IAdminCreds {
   id: string;
   password: string;
   email: string;

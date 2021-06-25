@@ -3,12 +3,12 @@ export = {
     port:8082,
     domain:"",
     db:{
-        name: '',
+        name: 'COLLECTION_NAME',
         user:'',
         pw: '',
-        uri: (user: string, pw :string, name :string) => {
-            return `mongodb+srv://${user}:${pw}@mr-ds-20-ckbes.gcp.mongodb.net/${name}?retryWrites=true&w=majority`
+        account: '@mongo-account',
+        uri: (user: string, pw :string, name :string, account: string) => {
+            return `mongodb+srv://${user}:${pw}${account}.gcp.mongodb.net/${name}?retryWrites=true&w=majority`
         }
     },
-    
 }

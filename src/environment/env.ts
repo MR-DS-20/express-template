@@ -1,5 +1,5 @@
-import { IEnv } from "./iEnv";
-export { IEnv } from "./iEnv";
+import { IEnv } from "../interfaces/IEnv";
+export { IEnv } from "../interfaces/IEnv";
 
 
 export const env:()=> IEnv = () =>{
