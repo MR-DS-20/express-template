@@ -4,56 +4,24 @@
 
 import { Schema } from "mongoose";
 import mongoose = require('mongoose')
-import { Document, Types } from "mongoose";
+import { Types } from "mongoose";
 import { BaseModel } from "./base.model";
+import { ExampleDoc } from "../interfaces/example.interface";
 
-/**
- * Interfaces for a nested documents within the main schema
- */
-interface NestedBase {
-    name: string
-}
-
-interface Nested extends NestedBase {
-    _id: string
-}
-
-interface NestedDoc extends NestedBase,  Document { }
+const NestedSchema = new Schema({
+    name: {type: String}
+})
 
 /*
- * Interface with all the document fields, excluding the _id field so it can be extended for multiple uses
- */
-interface ExampleBase<S> {
-    title: string;
-    date_created: number,
-    date_modified: number,
-    order: number,
-    hide: boolean
-    details: S // Generic type used for subdoc/nested field
-}
-
-/*
- * Provides type for Docs returned from queries so operations like `set()` or `save()` can be performed 
- */
-export interface ExampleDoc extends ExampleBase<NestedDoc>, Document {
-}
-
-/*
- * Used as a type for docs sent to API such as on updates or creation
- */
-export interface Example extends ExampleBase<Nested> {
-    _id: string
-}
-
-/*
- * Create the schmema that will reflect the MongoDB 
+ * Create the schmema that will reflect the MongoDB collection
  */
 const ExampleSchema: Schema = new Schema({
     title: { type: String },
     date_created: { type: Number },
     date_modified: { type: Number },
     order: { type: Number, default: 0 },
-    hide: { type: Boolean, default: false }
+    hide: { type: Boolean, default: false },
+    details: NestedSchema
 });
 
 /*
