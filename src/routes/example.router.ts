@@ -9,7 +9,7 @@ import { exampleController } from "../controllers/controllers.module";
 const base = '/content'
 
 //Routes
-routerTemplate.post(`${base}`, (req, res) => { exampleController.exampleApiFunction(req,res)})
+routerTemplate.post(`${base}`, (req, res) => { exampleController.createFunction(req,res)})
 routerTemplate.put(`${base}/:id`, (req, res) => {  })
 routerTemplate.delete(`${base}/:id`, (req, res) => { })
 routerTemplate.get(`${base}/:id`, (req, res) => { })
