@@ -13,7 +13,7 @@ export class BaseModel {
     return this.mongooseModel.create(document);
   }
 
-  find(populate?: IPopulate): Promise<any[]> {
+  find<T>(populate?: IPopulate): Promise<T[]> {
     return populate
       ? this.mongooseModel.find().populate(populate).exec()
       : this.mongooseModel.find().exec();
