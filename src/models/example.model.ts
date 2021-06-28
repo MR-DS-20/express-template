@@ -4,9 +4,7 @@
 
 import { Schema } from "mongoose";
 import mongoose = require('mongoose')
-import { Types } from "mongoose";
 import { BaseModel } from "./base.model";
-import { ExampleDoc } from "../interfaces/example.interface";
 
 const NestedSchema = new Schema({
     name: {type: String}
@@ -30,7 +28,7 @@ const ExampleSchema: Schema = new Schema({
 export class ExampleModel extends BaseModel {
     constructor() {
         super(
-            mongoose.model<ExampleDoc>('Example', ExampleSchema)
+            mongoose.model('Example', ExampleSchema)
         )
     }
 
